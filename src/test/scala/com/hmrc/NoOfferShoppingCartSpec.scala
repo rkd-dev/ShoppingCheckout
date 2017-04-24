@@ -1,6 +1,6 @@
 package com.hmrc
 
-import com.hmrc.{Apple, Fruits, NoOfferShoppingCart, Orange}
+//import com.hmrc.{Apple, Fruits, NoOfferShoppingCart, Orange}
 import org.scalatest.FlatSpec
 
 /**
@@ -36,6 +36,11 @@ class NoOfferShoppingCartSpec extends FlatSpec {
   "Shopping cart with two apples and two oranges" should " cost £1.70 " in {
     val total = noOfferShoppingCart.checkout(List(Apple, Orange, Apple, Orange))
     assert(total == BigDecimal("1.70"))
+  }
+
+  "Shopping cart with three apples and one oranges" should " cost £2.05" in {
+    val total = noOfferShoppingCart.checkout(List(Apple, Apple, Orange, Apple))
+    assert(total == BigDecimal("2.05"))
   }
 
   "Shopping cart with two apples and 3 oranges" should " cost £1.95 " in {
